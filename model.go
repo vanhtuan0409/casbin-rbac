@@ -12,13 +12,10 @@ const (
 	ADMIN_PRIV = ALL_PRIV
 
 	MOD_ROLE = "moderator"
-	MOD_PRIV = READ_PRIV | WRITE_PRIV | DEL_PRIV
+	MOD_PRIV = READ_PRIV | WRITE_PRIV
 
 	MEMBER_ROLE = "member"
-	MEMBER_PRIV = READ_PRIV | WRITE_PRIV
-
-	ANONYMOUS_ROLE = "anonymous"
-	ANONYMOUS_PRIV = READ_PRIV
+	MEMBER_PRIV = READ_PRIV
 )
 
 var (
@@ -26,7 +23,6 @@ var (
 		[]string{ADMIN_ROLE, strconv.Itoa(ADMIN_PRIV)},
 		[]string{MOD_ROLE, strconv.Itoa(MOD_PRIV)},
 		[]string{MEMBER_ROLE, strconv.Itoa(MEMBER_PRIV)},
-		[]string{ANONYMOUS_ROLE, strconv.Itoa(ANONYMOUS_PRIV)},
 	}
 	RESOURCES = []string{"repos"}
 )

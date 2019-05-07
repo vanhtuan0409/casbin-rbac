@@ -46,17 +46,22 @@ func main() {
 	assignGroup(e, "alice", "group1", ADMIN_ROLE)
 	assignGroup(e, "alice", "group2", MEMBER_ROLE)
 	assignGroup(e, "bob", "group2", MOD_ROLE)
+	assignGroup(e, "bob", "group1", MEMBER_ROLE)
 
 	addRepo(e, "group1", "alice", "repo1")
 	addRepo(e, "group2", "alice", "repo2")
 	addRepo(e, "group2", "bob", "repo3")
+	addRepo(e, "group1", "bob", "repo4")
 
 	checkAccess(e, "alice", "group1", "repo1", READ_PRIV|WRITE_PRIV)
 	checkAccess(e, "alice", "group2", "repo2", READ_PRIV)
 	checkAccess(e, "alice", "group2", "repo3", READ_PRIV)
-	checkAccess(e, "alice", "group2", "repo3", DEL_PRIV)
+	checkAccess(e, "alice", "group2", "repo3", WRITE_PRIV)
+	checkAccess(e, "alice", "group1", "repo4", READ_PRIV|WRITE_PRIV)
+	checkAccess(e, "bob", "group2", "repo2", ALL_PRIV)
+	checkAccess(e, "bob", "group2", "repo2", READ_PRIV|WRITE_PRIV)
 	checkAccess(e, "bob", "group2", "repo3", ALL_PRIV)
-	checkAccess(e, "bob", "group1", "repo2", READ_PRIV)
+	checkAccess(e, "bob", "group1", "repo2", WRITE_PRIV)
 
 	err = e.SavePolicy()
 	if err != nil {
