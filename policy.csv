@@ -1,5 +1,14 @@
-p, alice, data1, 1
-p, bob, data2, 3
-p, data2_admin, data2, 7
-
-g, alice, data2_admin
+p, g:group1:admin, /groups/group1/repos/*, 7
+p, g:group1:moderator, /groups/group1/repos/*, 7
+p, g:group1:member, /groups/group1/repos/*, 3
+p, g:group1:anonymous, /groups/group1/repos/*, 1
+p, g:group2:admin, /groups/group2/repos/*, 7
+p, g:group2:moderator, /groups/group2/repos/*, 7
+p, g:group2:member, /groups/group2/repos/*, 3
+p, g:group2:anonymous, /groups/group2/repos/*, 1
+p, alice, /groups/group1/repos/repo1, 7
+p, alice, /groups/group2/repos/repo2, 7
+p, bob, /groups/group2/repos/repo3, 7
+g, alice, g:group1:admin
+g, alice, g:group2:member
+g, bob, g:group2:moderator
